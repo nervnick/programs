@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ПЕРЕВОДЧИК</title>
+    <script src="eel.js"></script>
+    <link rel="stylesheet" href="CSS/style.css">
+</head>
+<body>
+    <div align="center">
+        <h1 id="title">ПЕРЕВОДЧИК</h1>
+        <textarea type="text" id="input" placeholder="Напишите что-нибудь на русском"></textarea>
+        <button id="butt" onclick="translateText()">Перевести</button>
+        <p id="text">Перевод на английский</p>
+    </div>
+    <script type="text/javascript">
+        function translateText() {
+            var input = document.getElementById("input").value
+            eel.translate_text(input);
+        }
+
+        function setText(text) {
+            document.getElementById('text').innerText = text;
+        }
+
+        eel.expose(setText, 'set_text')
+    </script>
+</body>
+</html>
